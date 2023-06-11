@@ -54,5 +54,24 @@
         <button id="btn-reset" type="button">Reset</button>
       </div>
     </div>
+    <div class="modal-player-selection" id="modal-player-selection">
+      <div class="player-selection-container">
+        <div class="player-container" id="player-one">
+          <span>Player One</span>
+          <div class="btn-player-selection">
+            <button class="btn-player-one" id="player-one-human" type="button">Human</button>
+            <button class="btn-player-one" id="player-one-computer" type="button">Computer</button>
+          </div>
+        </div>
+        <div class="player-container" id="player-two">
+          <span>Player Two</span>
+          <div class="btn-player-selection">
+            <button class="btn-player-two" id="player-two-human" type="button">Human</button>
+            <button class="btn-player-two" id="player-two-computer" type="button">Computer</button>
+          </div>
+        </div>
+      </div>
+      <button id="btn-player-selection-reset" type="button" onclick="resetGame()">Reset</button>
+    </div>
   </body>
 </html>

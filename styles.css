@@ -93,7 +93,7 @@ div.modal-content-container {
   align-items: center;
 }
 
-div.modal-content-container>button {
+button {
   border: none;
   border-radius: 16px;
   height: 6rem;
@@ -101,6 +101,55 @@ div.modal-content-container>button {
   font-size: 4rem;
   color: white;
   background-color: rgb(21, 147, 84);
+}
+
+button:hover {
+  background-color: rgb(85, 206, 146);
+}
+
+button.selected {
+  background-color: rgb(85, 206, 146);
+  border: 4px solid goldenrod;
+}
+
+div#modal-player-selection {
+  position: absolute;
+  top: 0;
+  height: 90%;
+  width: 100%;
+  padding-bottom: 200px;
+  z-index: 1;
+  background-color: rgba(188, 249, 174, 0.95);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+}
+
+div.player-selection-container {
+  height: 80%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+div.player-selection-container>.player-container {
+  font-size: 5rem;
+  display: grid;
+  /* align-items: center; */
+  justify-items: center;
+}
+
+div.player-selection-container>.player-container {
+  font-size: 5rem;
+  display: grid;
+  justify-items: center;
+}
+
+div.player-selection-container>.player-container>div.btn-player-selection>button {
+  font-size: 2.5rem;
 }
 
 #footer {
