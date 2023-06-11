@@ -1,13 +1,24 @@
 const gameboardItems = document.querySelectorAll('div.gameboard-item');
-const modalResult = document.querySelector('div#modal-results');
+const resetButton = document.querySelector('button#btn-reset');
 
 
 // player
+const PlayerMaker = (isComputer, playerInt) => {
+  const state = {
+    isComputer, 
+    playerInt,
+    hasWon: false
+  }
 
+  return Object.assign(
+    {}, 
+    state
+  ); 
+} 
 
 // gameController
+const modalResult = document.querySelector('div#modal-results');
 const modalText = document.querySelector('div#modal-text');
-const resetButton = document.querySelector('button#btn-reset');
 let turns = 0; 
 let currentPlayer = 'X'; 
 function renderGameboard(gameboard, gameboardItems) {
