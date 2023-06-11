@@ -1,30 +1,51 @@
 const gameboardItems = document.querySelectorAll('div.gameboard-item');
 const modalResult = document.querySelector('div#modal-results');
+
+
+// player
+
+
+// gameController
 const modalText = document.querySelector('div#modal-text');
 const resetButton = document.querySelector('button#btn-reset');
-
 let turns = 0; 
-const gameboard = [null,null,null,null,null,null,null,null,null];
 let currentPlayer = 'X'; 
-
 function renderGameboard(gameboard, gameboardItems) {
   for (let i = 0; i < gameboard.length; i++) {
     gameboardItems[i].innerText = gameboard[i];
   }
 }
+function executeTurn() {
+  const i = parseInt(this.id.split('-')[2])-1;
+  console.log(`i: ${i}`);
+  if (isValidMove(i)) {
+    updateGameboard(i);
+    gameboardItems[i].classList += ' gameboard-item-visible';
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    turns++;
+    renderGameboard(gameboard, gameboardItems);
+    checkForWinner();
+  }
+}
+function resetGame() {
+  window.location.reload();
+}
 
+// gameboard
+const gameboard = [null,null,null,null,null,null,null,null,null];
 function isValidMove(i) {
+  // basically, if the index on...
+  // the gameboard is X or O...
+  // the move is invalid 
   if (['X','O'].includes(gameboard[i])) {
     return false;
   } else {
     return true;
   }
 }
-
 function updateGameboard(i) {
   gameboard[i] = currentPlayer;
 }
-
 function processGameboardForWin() {
   
   function parsePlayerInt(playerChar) {
@@ -60,7 +81,6 @@ function processGameboardForWin() {
    
   return checkWin();
 }
-
 function checkForWinner() {
   const winnerIdentified = processGameboardForWin();
   if (winnerIdentified > 0) {
@@ -76,24 +96,10 @@ function checkForWinner() {
   }
 }
 
-function executeTurn() {
-  const i = parseInt(this.id.split('-')[2])-1;
-  console.log(`i: ${i}`);
-  if (isValidMove(i)) {
-    updateGameboard(i);
-    gameboardItems[i].classList += ' gameboard-item-visible';
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    turns++;
-    renderGameboard(gameboard, gameboardItems);
-    checkForWinner();
-  }
-}
 
-function resetGame() {
-  window.location.reload();
-}
 
-renderGameboard(gameboard, gameboardItems);
+
+
 
 gameboardItems.forEach( item => {
   item.addEventListener('click', executeTurn)
