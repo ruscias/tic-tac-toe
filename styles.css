@@ -2,6 +2,7 @@
   --header: 3rem;
   --footer: 40px;
   --main: calc(100vh - calc(var(--header) + var(--footer)));
+  --gameboard-container-background: antiquewhite;
 }
 
 body {
@@ -12,16 +13,19 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#container {
+div#container {
   border: 0px solid transparent;
   height: 100vh;
+  /* width: 100vw; */
   color: white;
+  display: grid;
 }
-#container > * {
+
+/* #container > * {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 #header {
   height: var(--header);
@@ -30,8 +34,11 @@ body {
 #main-content {
   height: var(--main);
   background: #343434;
-  margin-right: auto;
-  margin-left: auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  /* margin-right: auto;
+  margin-left: auto; */
 }
 
 .gameboard-container {
@@ -39,16 +46,22 @@ body {
   width: 40%;
   background-color: rgb(109, 185, 195);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  /* align-items: center;
-  justify-items: center; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .gameboard-item {
-  background-color:antiquewhite;
+  background-color: var(--gameboard-container-background);
   display: grid;
   align-items: center;
   justify-items: center;
+  color: var(--gameboard-container-background);
+  font-size: 5em;
+  border: 1px solid #111111;
+}
+
+.gameboard-item-visible {
+  color: #111111;
 }
 
 .gameboard-item>span {
@@ -56,6 +69,39 @@ body {
   font-size: 5rem;
 }
 
+div.hidden {
+  visibility: hidden;
+}
+
+div#modal-results.show {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(188, 249, 174, 0.95);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  font-size: 10rem;
+  font-weight:700;
+}
+
+div.modal-content-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+div.modal-content-container>button {
+  border: none;
+  border-radius: 16px;
+  height: 6rem;
+  width: 15rem;
+  font-size: 4rem;
+  color: white;
+  background-color: rgb(21, 147, 84);
+}
 
 #footer {
   height: var(--footer);
