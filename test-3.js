@@ -89,6 +89,26 @@ const modalText = document.querySelector('div#modal-text');
 const modalPlayerSelection = document.querySelector('div#modal-player-selection');
 const playerSelectionButtons = document.querySelectorAll('div.btn-player-selection>button');
 
+const GameController = (function () {
+  const recordPlayerSelection = () => {
+    console.log(`recordPlayerSelection`);
+  }
+
+  const executeTurn = () => {
+    console.log('executeTurn');
+  }
+
+  const resetGame = () => {
+    console.log('resetGame');
+  }
+
+  return {
+    recordPlayerSelection,
+    executeTurn,
+    resetGame
+  }
+})();
+
 const playerOne = PlayerMaker(false,1);
 const playerTwo = PlayerMaker(false,2);
 let turns = 0; 
@@ -169,7 +189,7 @@ playerSelectionButtons.forEach( item => {
 })
 
 gameboardItems.forEach( item => {
-  item.addEventListener('click', executeTurn)
+  item.addEventListener('click', GameController.executeTurn)
 })
 
 resetButton.addEventListener('click', resetGame)
