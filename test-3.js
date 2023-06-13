@@ -90,12 +90,17 @@ const modalPlayerSelection = document.querySelector('div#modal-player-selection'
 const playerSelectionButtons = document.querySelectorAll('div.btn-player-selection>button');
 
 const GameController = (function () {
+
+  const playerOne = PlayerMaker(false,1);
+  const playerTwo = PlayerMaker(false,2);
+
   const recordPlayerSelection = () => {
     console.log(`recordPlayerSelection`);
   }
 
   const executeTurn = () => {
-    console.log('executeTurn');
+    console.log(`playerOne: ${JSON.stringify(playerOne,null,4)}`);
+    console.log(`playerTwo: ${JSON.stringify(playerTwo,null,4)}`);
   }
 
   const resetGame = () => {
@@ -109,8 +114,7 @@ const GameController = (function () {
   }
 })();
 
-const playerOne = PlayerMaker(false,1);
-const playerTwo = PlayerMaker(false,2);
+
 let turns = 0; 
 let currentPlayer = 'X'; 
 
